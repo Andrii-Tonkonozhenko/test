@@ -14,15 +14,10 @@ class OrderController extends Controller
         $this->orderService = $orderService;
     }
 
-    public function index()
-    {
-       //
-    }
-
     public function store(Request $request)
     {
-       $chekout = $this->orderService->checkout($request->items, $request->checkoutCurrency);
+        $checkout = $this->orderService->checkout($request->items, $request->checkoutCurrency);
 
-        return response()->json($request->all());
+        return response()->json($checkout);
     }
 }
